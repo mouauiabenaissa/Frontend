@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container" class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar >Categories</mat-toolbar>
+    <mat-nav-list>
+      <a  mat-list-item [routerLink]="['/pc']"><mat-icon>desktop_windows</mat-icon>PC</a>
+      <a  mat-list-item [routerLink]="['/electroniques']"><mat-icon>tv</mat-icon>Électroniques</a>
+      <a  mat-list-item [routerLink]="['/telephones']" ><mat-icon>smartphone</mat-icon>Téléphone</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">Categories</mat-icon>
+      </button>
+      <span><mat-icon>eco</mat-icon>Let'Shop</span> 
+      <span><a  mat-button [routerLink]="['']"><mat-icon>home</mat-icon>Home</a></span>
+      <span><a  *ngIf="myservice.isAuthenticated()" mat-button [routerLink]="['/Mes achats']"><mat-icon>shopping_cart</mat-icon>Cart</a></span>
+      <span style="flex:auto;"></span>
+      <mat-slide-toggle [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
+        <mat-icon>bedtime</mat-icon>
+      </mat-slide-toggle>
+
+      <a mat-button *ngIf="!myservice.isAuthenticated()" [routerLink]="['/register']"><mat-icon>perm_identity</mat-icon>Sign Up</a>
+      <a *ngIf="!myservice.isAuthenticated()" mat-button [routerLink]="['/login']"><mat-icon>input</mat-icon>Login</a>
+      <a mat-button *ngIf="myservice.isAuthenticated()" (click)="logout()"><mat-icon>logout</mat-icon>Logout</a>
+   </mat-toolbar>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="footer">
+ <div class="rigth"><b><FONT COLOR="#ff0000">Copyright &copy;  {{year}} , Let'Shop</FONT></b>
+ </div>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+ 
+ <ul class="social-menu">
+    <li><a href="https://facebook.com/"><i class="fab fa-facebook"></i></a></li>
+    <li><a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i> </a></li>
+    <li><a href="https://youtube.com/"><i class="fab fa-youtube"></i> </a></li>
+  </ul>
+</div>

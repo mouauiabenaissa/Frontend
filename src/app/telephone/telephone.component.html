@@ -1,0 +1,42 @@
+<div class="grid-container">
+  <h1 class="mat-h1"><FONT COLOR="ff0000"><mat-icon>smartphone</mat-icon>Téléphone</FONT></h1>
+  <mat-grid-list class="mat-list-item" cols="3"  >
+    <div class="sort"> 
+      <mat-form-field >
+        <mat-label><b>Sort Buy</b></mat-label>
+        <mat-select  id="sort-by" [(value)]="SelectedValue">
+          <mat-option (click)="sort()" value="Low">Price : low to high</mat-option>
+          <mat-option (click)="sort()"value="High" >Price : high to low </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+    <mat-grid-tile *ngFor="let card of cards; index as i" >
+      <mat-card class="dashboard-card  card-image " [style.background-image]="getImage(card.imageName)">
+        <mat-card-header class="mat-app-background card-title">
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+
+        <div class="middle">
+          <div class="text">
+            <h1><FONT color="#ff0000">Ref:</FONT><strong>{{card.ref}}</strong></h1>
+            <h1><FONT color="#ff0000">Description:</FONT><strong>{{card.description}}</strong></h1>
+            <h1><FONT color="#ff0000">Prix:</FONT><strong>{{card.prix}} DT</strong></h1>
+          </div>
+        </div>    
+
+        <div class="bottomleft" >
+          <button mat-raised-button color="accent" (click)="AddToCart(i)" *ngIf="add !== i">
+            AddToCart
+          </button>
+        </div>
+          <div *ngIf="add === i" class="buy">
+            <input type="number" class="form-control" placeholder="Amount " #amount>
+            <button mat-raised-button color="primary" class="button" (click)="buy(amount.value)" >Add</button>    
+          </div>
+
+      </mat-card> 
+    </mat-grid-tile>  
+  </mat-grid-list>
+</div>

@@ -1,0 +1,94 @@
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding :60px ;
+   
+}
+
+.formbody{
+    display: flex;
+    width: 290px;
+    min-height:270 px;
+    background-color: rgb(55, 97, 110);
+    box-shadow:0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+
+	-webkit-background-size: cover;
+    background:  url("../../assets/Images/back3.jpg");
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+
+  .header{
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;      
+  }
+
+div > span {
+    font-size: 0.75rem;
+    color: firebrick;
+}
+body {
+    margin: 15px;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-btn {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: turquoise;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+  }
+
+  .form-btn-hollow {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: turquoise;
+    line-height: 1.2;
+    text-transform: uppercase;
+    background-color:transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border:1px solid turquoise;
+    outline: none;    
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .form-btn-hollow:hover{
+      background-color: rgba(0, 0, 0, 0.5);
+  }
